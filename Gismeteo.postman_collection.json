@@ -1,0 +1,2309 @@
+{
+	"info": {
+		"_postman_id": "b46b9a7c-ebc9-452f-b6d3-d7dae34a10b4",
+		"name": "Gismeteo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Код 200",
+			"item": [
+				{
+					"name": "Текущая погода",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/?latitude={{latitude}}&longitude={{longitude}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id}}/",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id}}/?lang={{lang}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 3 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 24 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Поиск",
+					"item": [
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?lang={{lang}}&query={{query}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "query",
+											"value": "{{query}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?latitude={{latitude}}&longitude={{longitude}}&limit={{limit}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "limit",
+											"value": "{{limit}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По IP-адресу",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?ip={{ip}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "ip",
+											"value": "{{ip}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По строке",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?query={{query}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "{{query}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 6 часов",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Код 401",
+			"item": [
+				{
+					"name": "Текущая погода",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/?latitude={{latitude}}&longitude={{longitude}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id}}/",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id}}/?lang={{lang}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 3 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 24 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Поиск",
+					"item": [
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?lang={{lang}}&query={{query}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "query",
+											"value": "{{query}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?latitude={{latitude}}&longitude={{longitude}}&limit={{limit}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "limit",
+											"value": "{{limit}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По IP-адресу",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?ip={{ip}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "ip",
+											"value": "{{ip}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По строке",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?query={{query}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "{{query}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 6 часов",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/?latitude={{latitude}}&longitude={{longitude}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id}}/?days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token1}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id}}/?lang={{lang}}&days={{days}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Код 400",
+			"item": [
+				{
+					"name": "Текущая погода",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/?latitude={{latitude1}}&longitude={{longitude1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude1}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id1}}/",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id1}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/current/{{id1}}/?lang={{lang1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"current",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 3 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/?latitude={{latitude1}}&longitude={{longitude1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude1}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id1}}/?days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/{{id1}}/?lang={{lang1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 24 часа",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/?latitude={{latitude1}}&longitude={{longitude1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude1}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id1}}/?days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/aggregate/{{id1}}/?lang={{lang1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"aggregate",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Поиск",
+					"item": [
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?lang={{lang1}}&query={{query1}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang1}}"
+										},
+										{
+											"key": "query",
+											"value": "{{query1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?latitude={{latitude1}}&longitude={{longitude1}}&limit={{limit1}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude1}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude1}}"
+										},
+										{
+											"key": "limit",
+											"value": "{{limit1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По IP-адресу",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?ip={{ip1}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "ip",
+											"value": "{{ip1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По строке",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}search/cities/?query={{query1}}",
+									"host": [
+										"{{prod}}search"
+									],
+									"path": [
+										"cities",
+										""
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "{{query1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Прогноз с шагом 6 часов",
+					"item": [
+						{
+							"name": "По координатам",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/?latitude={{latitude1}}&longitude={{longitude1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										""
+									],
+									"query": [
+										{
+											"key": "latitude",
+											"value": "{{latitude1}}"
+										},
+										{
+											"key": "longitude",
+											"value": "{{longitude1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "По географическому объекту",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id1}}/?days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id1}}",
+										""
+									],
+									"query": [
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Язык ответа",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Gismeteo-Token",
+										"value": "{{X-Gismeteo-Token}}"
+									}
+								],
+								"url": {
+									"raw": "{{prod}}weather/forecast/by_day_part/{{id}}/?lang={{lang1}}&days={{days1}}",
+									"host": [
+										"{{prod}}weather"
+									],
+									"path": [
+										"forecast",
+										"by_day_part",
+										"{{id}}",
+										""
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "{{lang1}}"
+										},
+										{
+											"key": "days",
+											"value": "{{days1}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	]
+}
