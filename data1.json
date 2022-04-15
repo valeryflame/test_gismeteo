@@ -1,6 +1,5 @@
 [
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "-90.0",
 		"longitude" : "-180.0",
@@ -20,7 +19,6 @@
 		"ip1" : "0"
 	},
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "-89.9",
 		"longitude" : "-179.9",
@@ -40,7 +38,6 @@
 		"ip1" : "1"
 	},
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "-1.0",
 		"longitude" : "-1.0",
@@ -60,7 +57,6 @@
 		"ip1" : "0"
 	},
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "0.0",
 		"longitude" : "0.0",
@@ -80,7 +76,6 @@
 		"ip1" : "0"
 	},
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "50.5",
 		"longitude" : "60.6",
@@ -100,7 +95,6 @@
 		"ip1" : "0"
 	},
 	{
-		"X-Gismeteo-Token" : "",
 		"query" : "москв",
 		"latitude" : "90.0",
 		"longitude" : "180.0",
